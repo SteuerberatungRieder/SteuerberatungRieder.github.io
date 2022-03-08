@@ -6,10 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZAHLEN.ZEIT.ZUFRIEDENHEIT - TOOL</title>
-    <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/18e03e461d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/jquery-3.6.0.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/main.js"></script>
+    <script>
+        function ZZZReglerClick(e) {
+
+        }
+    </script>
 </head>
 
 <body>
@@ -25,26 +32,90 @@
     </header>
 
     <div>
-        <div class="eingabe">
-            <label for="">Meine wichtigsten 3 Zufriedenheitsfaktoren sind:</label><br>
-            <input type="text" name="" id="">
-            <input type="text" name="" id="">
-            <input type="text" name="" id="">
 
-            <br>
-            <label for="">Ich</label><br>
-            <input type="text" name="" id="" value="Körper" disabled><br>
-            <input type="text" name="" id="" value="Seele" disabled><br>
-            <input type="text" name="" id="" value="Geist" disabled><br>
-            <br>
-            <label for="">Familie</label><br>
-            <input type="text" name="" id=""><button><i class="fa-solid fa-plus"></i>test</button> <br>
-            <br>
-            <label for="">Beruf</label><br>
-            <input type="text" name="" id=""> <button><i class="fa-solid fa-plus"></i>test</button> <br>
-            <br>
-            <label for="">Umwelt</label> <button><i class="fa-solid fa-plus"></i> test</button><br>
-            <input type="text" name="" id="">
+
+
+        <div class="px-4 py-5 my-5 text-center">
+            <h1 class="display-5 fw-bold">Centered hero</h1>
+            <div class="col-lg-6 mx-auto">
+                <div class="eingabe">
+                    <label for="">Meine wichtigsten 3 Zufriedenheitsfaktoren sind:</label><br>
+                    <input type="text" name="" id="">
+                    <input type="text" name="" id="">
+                    <input type="text" name="" id="">
+
+                    <br>
+                    <label for="">Ich</label><br>
+                    <input type="text" name="" id="" value="Körper" disabled><br>
+                    <input type="text" name="" id="" value="Seele" disabled><br>
+                    <input type="text" name="" id="" value="Geist" disabled><br>
+                    <br>
+                    <label for="">Familie</label><br>
+                    <input type="text" name="" id=""><button class="btn btn-primary"><i
+                            class="fa-solid fa-plus"></i></button>
+                    <br>
+                    <br>
+                    <label for="">Beruf</label><br>
+                    <input type="text" name="" id=""> <button class="btn btn-primary"><i
+                            class="fa-solid fa-plus"></i></button>
+                    <br>
+                    <br>
+                    <label for="">Umwelt</label><br>
+                    <input type="text" name="" id=""><button class="btn btn-primary"><i
+                            class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="schieberegler">
+            <div class="container px-4 py-5" id="hanging-icons">
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    <div class="col d-flex align-items-start">
+                        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#toggles2"></use>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2>Main</h2>
+                            <canvas class="ZZZRegler" onclick="ZZZReglerClick">
+
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-start">
+                        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#cpu-fill"></use>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2>Second</h2>
+                            <input type="range" class="ZZZReglerRange" >
+
+                            <!-- orient="vertical" -->
+
+                        </div>
+                    </div>
+                    <div class="col d-flex align-items-start">
+                        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#tools"></use>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2>Featured title</h2>
+                            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with
+                                another sentence and probably just keep going until we run out of words.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ausgabe">
+
         </div>
 
     </div>
