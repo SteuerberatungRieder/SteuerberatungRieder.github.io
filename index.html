@@ -12,10 +12,13 @@
     <script src="./js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js"></script>
-    <script>
-        function ZZZReglerClick(e) {
 
-        }
+    <script>
+        $("document").ready(() => {
+            document.getElementById("regler").addEventListener("click", (e) => {
+                debugger
+            })
+        })
     </script>
 </head>
 
@@ -71,38 +74,23 @@
             <div class="container px-4 py-5" id="hanging-icons">
                 <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
                     <div class="col d-flex align-items-start">
-                        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-                            <svg class="bi" width="1em" height="1em">
-                                <use xlink:href="#toggles2"></use>
-                            </svg>
-                        </div>
                         <div>
                             <h2>Main</h2>
-                            <canvas class="ZZZRegler" onclick="ZZZReglerClick">
+                            <canvas class="ZZZRegler" id="regler">
 
                             </canvas>
                         </div>
                     </div>
                     <div class="col d-flex align-items-start">
-                        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-                            <svg class="bi" width="1em" height="1em">
-                                <use xlink:href="#cpu-fill"></use>
-                            </svg>
-                        </div>
                         <div>
                             <h2>Second</h2>
-                            <input type="range" class="ZZZReglerRange" >
 
-                            <!-- orient="vertical" -->
+
+                            <!--  -->
 
                         </div>
                     </div>
                     <div class="col d-flex align-items-start">
-                        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-                            <svg class="bi" width="1em" height="1em">
-                                <use xlink:href="#tools"></use>
-                            </svg>
-                        </div>
                         <div>
                             <h2>Featured title</h2>
                             <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with
