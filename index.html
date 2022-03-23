@@ -15,8 +15,17 @@
 
     <script>
         $("document").ready(() => {
-            document.getElementById("regler").addEventListener("click", (e) => {
-                debugger
+            $(".ZZZRegler").click((e) => {
+                // debugger
+                let canvas = e.currentTarget;
+                let bounding=canvas.getBoundingClientRect();
+                let mausx = (e.clientX - bounding.x) / canvas.offsetWidth;
+                let mausy = (e.clientY - bounding.y) / canvas.offsetHeight;
+                let ctx = canvas.getContext("2d");
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "rgb(200,0,0)";
+                ctx.fillRect(0, canvas.offsetHeight*mausy, canvas.offsetWidth, canvas.offsetHeight);
+                let pos=mausy;
             })
         })
     </script>
@@ -76,7 +85,7 @@
                     <div class="col d-flex align-items-start">
                         <div>
                             <h2>Main</h2>
-                            <canvas class="ZZZRegler" id="regler">
+                            <canvas class="ZZZRegler" id="regler" width="50" height="200">
 
                             </canvas>
                         </div>
