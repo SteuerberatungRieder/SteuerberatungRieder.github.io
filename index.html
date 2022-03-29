@@ -12,40 +12,6 @@
     <script src="./js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/main.js"></script>
-
-    <script>
-        $("document").ready(() => {
-            $(".ZZZRegler").mousemove(reglerUpdate);
-            $(".ZZZRegler").mousedown(reglerUpdate);
-            $(".ZufriedenheitsEingabe").change(ChangeZufriedenheitsfaktor);
-        })
-
-        function reglerUpdate(e) {
-            if (e.buttons != 1) {
-                return;
-            }
-            let canvas = e.currentTarget;
-            let bounding = canvas.getBoundingClientRect();
-            let mausx = (e.clientX - bounding.x) / canvas.offsetWidth;
-            let mausy = ((e.clientY - bounding.y) / canvas.offsetHeight);
-            let ctx = canvas.getContext("2d");
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = canvas.dataset.color;
-            ctx.fillRect(0, canvas.offsetHeight * mausy, canvas.offsetWidth, canvas.offsetHeight);
-            let pos = mausy;
-            canvas.dataset.count = 100 - Math.round(mausy * 100);
-        }
-
-        function ChangeZufriedenheitsfaktor(params) {
-
-            let input = params.currentTarget;
-            let inputClass = [].slice.call(input.classList);
-            const classname = inputClass.find(element => element.includes("Zufriedenheitsfaktor"));
-            $(`.${classname}`).html(input.value)
-
-            debugger
-        }
-    </script>
 </head>
 
 <body>
@@ -65,43 +31,171 @@
 
 
         <div class="px-4 py-5 my-5 text-center">
-            <h1 class="display-5 fw-bold">Centered hero</h1>
             <div class="col-lg-6 mx-auto">
                 <div class="eingabe">
-                    <label for="">Meine wichtigsten 3 Zufriedenheitsfaktoren sind:</label><br>
-                    <input type="text" name="" id="" class="Zufriedenheitsfaktor1 ZufriedenheitsEingabe">
-                    <input type="text" name="" id="" class="Zufriedenheitsfaktor2 ZufriedenheitsEingabe">
-                    <input type="text" name="" id="" class="Zufriedenheitsfaktor3 ZufriedenheitsEingabe">
-
-                    <br>
-                    <label for="">Ich</label><br>
-                    <input type="text" name="" id="" value="Körper" disabled><br>
-                    <input type="text" name="" id="" value="Seele" disabled><br>
-                    <input type="text" name="" id="" value="Geist" disabled><br>
-                    <br>
-                    <label for="">Familie</label><br>
-                    <input type="text" name="" id=""><button class="btn btn-primary"><i
-                            class="fa-solid fa-plus"></i></button>
-                    <br>
-                    <br>
-                    <label for="">Beruf</label><br>
-                    <input type="text" name="" id=""> <button class="btn btn-primary"><i
-                            class="fa-solid fa-plus"></i></button>
-                    <br>
-                    <br>
-                    <label for="">Umwelt</label><br>
-                    <input type="text" name="" id=""><button class="btn btn-primary"><i
-                            class="fa-solid fa-plus"></i></button>
+                    <div class="mb-3">
+                        <h4>Meine wichtigsten 3 Zufriedenheitsfaktoren sind:</h4>
+                        <input type="text" id="Zufriedenheitsfaktor1" class="ZufriedenheitsEingabe m-1">
+                        <input type="text" id="Zufriedenheitsfaktor2" class="ZufriedenheitsEingabe m-1">
+                        <input type="text" id="Zufriedenheitsfaktor3" class="ZufriedenheitsEingabe m-1">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 " data-name="Ich">
+                            <h4>Ich</h4>
+                            <div>
+                                <input class="ErfüllungBereich m-1" type="text" data-id="Ich0" value="Körper" disabled><br>
+                                <input class="ErfüllungBereich m-1" type="text" data-id="Ich1" value="Seele" disabled><br>
+                                <input class="ErfüllungBereich m-1" type="text" data-id="Ich2" value="Geist" disabled><br>
+                            </div>
+                            <button class="btn btn-primary addBereich"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="col-sm-6" data-name="Familie">
+                            <h4>Familie</h4>
+                            <div>
+                                <input class="ErfüllungBereich m-1" type="text" data-id="Familie0" value=""><br>
+                            </div>
+                            <button class="btn btn-primary addBereich"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="col-sm-6" data-name="Beruf">
+                            <h4>Beruf</h4>
+                            <div>
+                                <input class="ErfüllungBereich m-1" type="text" data-id="Beruf0" value=""><br>
+                            </div>
+                            <button class="btn btn-primary addBereich"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="col-sm-6" data-name="Umwelt">
+                            <h4>Umwelt</h4>
+                            <div>
+                                <input class="ErfüllungBereich m-1" type="text" data-id="Umwelt0" value=""><br>
+                            </div>
+                            <button class="btn btn-primary addBereich"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="schieberegler">
             <div class="container px-4 py-5" id="hanging-icons">
-                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-                    <div class="col d-flex align-items-start">
-                        <h2>Ich</h2>
-                        <div class="container d-flex  align-items-start">
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-4" id="sliderAllBox">
+                    <div class="col d-flex justify-content-center flex-column sliderbox" id="Ich0">
+                        <h2>Ich: <span class="Beschreibung">Körper</span></h2>
+                        <div class="container d-flex justify-content-around">
+                            <div class="m-2 ml-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor1"></h5>
+                            </div>
+                            <div class="m-2">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor2"></h5>
+                            </div>
+                            <div class="m-2 mr-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor3"></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-center flex-column sliderbox" id="Ich1">
+                        <h2>Ich: <span class="Beschreibung">Seele</span></h2>
+                        <div class="container d-flex justify-content-around">
+                            <div class="m-2 ml-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor1"></h5>
+                            </div>
+                            <div class="m-2">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor2"></h5>
+                            </div>
+                            <div class="m-2 mr-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor3"></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-center flex-column sliderbox" id="Ich2">
+                        <h2>Ich: <span class="Beschreibung">Geist</span></h2>
+                        <div class="container d-flex justify-content-around">
+                            <div class="m-2 ml-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor1"></h5>
+                            </div>
+                            <div class="m-2">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor2"></h5>
+                            </div>
+                            <div class="m-2 mr-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor3"></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-center flex-column sliderbox" id="Familie0">
+                        <h2>Familie: <span class="Beschreibung"></span></h2>
+                        <div class="container d-flex justify-content-around">
+                            <div class="m-2 ml-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor1"></h5>
+                            </div>
+                            <div class="m-2">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor2"></h5>
+                            </div>
+                            <div class="m-2 mr-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor3"></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-center flex-column sliderbox" id="Beruf0">
+                        <h2>Beruf: <span class="Beschreibung"></span></h2>
+                        <div class="container d-flex justify-content-around">
+                            <div class="m-2 ml-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor1"></h5>
+                            </div>
+                            <div class="m-2">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor2"></h5>
+                            </div>
+                            <div class="m-2 mr-0">
+                                <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
+                                    data-color="#df0000">
+                                </canvas>
+                                <h5 class="Zufriedenheitsfaktor3"></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-flex justify-content-center flex-column sliderbox" id="Umwelt0">
+                        <h2>Umwelt: <span class="Beschreibung"></span></h2>
+                        <div class="container d-flex justify-content-around">
                             <div class="m-2 ml-0">
                                 <canvas class="ZZZRegler" id="regler" width="50" height="200" data-count="0"
                                     data-color="#df0000">
