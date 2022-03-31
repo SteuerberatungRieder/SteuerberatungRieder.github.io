@@ -3,23 +3,54 @@ $("document").ready(() => {
 })
 
 function UpdateEvents() {
-    $(".ZZZRegler").mousemove(reglerUpdate);
-    $(".ZZZRegler").mousedown(reglerUpdate);
+    $(".ZZZRegler").on("touchmove", reglerUpdate);
+    $(".ZZZRegler").on("touchstart", reglerUpdate);
+    $(".ZZZRegler").on("mousemove", reglerUpdate);
+    $(".ZZZRegler").on("mousedown", reglerUpdate);
     $(".ZufriedenheitsEingabe").keypress(ChangeZufriedenheitsfaktor);
     $(".ZufriedenheitsEingabe").change(ChangeZufriedenheitsfaktor);
     $(".ErfüllungBereich").keypress(UpdateErfüllungBereich);
     $(".ErfüllungBereich").change(UpdateErfüllungBereich);
-    $(".addBereich").click(addBereich)
+    $(".addBereich").click(addBereich);
+    updateZufriedenheitsfaktor();
 }
 
 function reglerUpdate(e) {
-    if (e.buttons != 1) {
+    if (e.buttons != 1 && e.buttons != undefined) {
         return;
     }
+    let mausx = 0;
+    let mausy = 0;
+    let touch;
     let canvas = e.currentTarget;
     let bounding = canvas.getBoundingClientRect();
-    let mausx = (e.clientX - bounding.x) / canvas.offsetWidth;
-    let mausy = ((e.clientY - bounding.y) / canvas.offsetHeight);
+    switch (e.type) {
+        case "mousedown":
+            mausx = (e.clientX - bounding.x) / canvas.offsetWidth;
+            mausy = ((e.clientY - bounding.y) / canvas.offsetHeight);
+            break;
+        case "mousemove":
+            mausx = (e.clientX - bounding.x) / canvas.offsetWidth;
+            mausy = ((e.clientY - bounding.y) / canvas.offsetHeight);
+            break;
+        case "touchstart":
+            touch = e.originalEvent.touches;
+            if (touch.length == 1) {
+                mausx = (touch[0].clientX - bounding.x) / canvas.offsetWidth;
+                mausy = ((touch[0].clientY - bounding.y) / canvas.offsetHeight);
+            }
+            break;
+        case "touchmove":
+            touch = e.originalEvent.touches;
+            if (touch.length == 1) {
+                mausx = (touch[0].clientX - bounding.x) / canvas.offsetWidth;
+                mausy = ((touch[0].clientY - bounding.y) / canvas.offsetHeight);
+            }
+            break;
+
+        default:
+            break;
+    }
     let ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = canvas.dataset.color;
@@ -37,6 +68,18 @@ function ChangeZufriedenheitsfaktor(params) {
     // debugger
 }
 
+function updateZufriedenheitsfaktor() {
+
+    let faktoren = document.getElementsByClassName("ZufriedenheitsEingabe");
+
+    for (let i = 0; i < faktoren.length; i++) {
+        let input = faktoren[i];
+        let inputid = input.id;
+        $(`.${inputid}`).html(input.value);
+    }
+
+}
+
 function UpdateErfüllungBereich(params) {
     let input = params.currentTarget;
     let inputid = input.dataset.id;
@@ -47,7 +90,6 @@ function UpdateErfüllungBereich(params) {
     // debugger
 }
 
-// TODO Update Zufriedenheitzfaktoren bei neuen zeug
 function addBereich(params) {
     let parentdiv = params.currentTarget.parentNode;
     let div = parentdiv.getElementsByTagName("div")[0];
@@ -59,7 +101,7 @@ function addBereich(params) {
     newInput.dataset.id = nameid;
     newInput.classList.add("ErfüllungBereich");
     newInput.classList.add("m-1");
-    newInput.value=""
+    newInput.value = ""
     div.appendChild(newInput);
     div.appendChild(document.createElement("br"));
 
@@ -78,5 +120,3 @@ function addBereich(params) {
 
     // debugger
 }
-
-
