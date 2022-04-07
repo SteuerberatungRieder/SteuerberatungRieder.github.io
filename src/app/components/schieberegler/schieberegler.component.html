@@ -1,36 +1,13 @@
-<div class="col d-flex justify-content-center flex-column sliderbox" id="Ich0">
-  <h2>{{ Schieberegler.name }}: {{ Schieberegler.beschreibung }}</h2>
-  <div class="container d-flex justify-content-around">
-    <div class="m-2 ml-0">
-      <div class="ZZZRegler">
-        <div
-          class="ZZZReglerAfter"
-          [ngStyle]="{ height: 100-Schieberegler.regler1 + '%' }"
-          (mousedown)="mouseRegler($event)"
-          (mousemove)="mouseRegler($event)"
-          (touchstart)="touchRegler($event)"
-          (touchmove)="touchRegler($event)"
-        ></div>
-      </div>
-      <h5>{{ Schieberegler.regler1 }}</h5>
-    </div>
-    <div class="m-2">
-      <div class="ZZZRegler">
-        <div
-          class="ZZZReglerAfter"
-          [ngStyle]="{ height: 100-Schieberegler.regler2 + '%' }"
-        ></div>
-      </div>
-      <h5>{{ Schieberegler.regler2 }}</h5>
-    </div>
-    <div class="m-2 mr-0">
-      <div class="ZZZRegler">
-        <div
-          class="ZZZReglerAfter"
-          [ngStyle]="{ height: 100-Schieberegler.regler3 + '%' }"
-        ></div>
-      </div>
-      <h5>{{ Schieberegler.regler3 }}</h5>
-    </div>
-  </div>
+<div
+  class="ZZZRegler"
+  #ZZZRegler
+  (mousedown)="mouseRegler($event, ZZZRegler)"
+  (mousemove)="mouseRegler($event, ZZZRegler)"
+  (touchstart)="touchRegler($event, ZZZRegler)"
+  (touchmove)="touchRegler($event, ZZZRegler)"
+>
+  <div
+    class="ZZZReglerAfter"
+    [ngStyle]="{ height: 100 - this.regler + '%' }"
+  ></div>
 </div>

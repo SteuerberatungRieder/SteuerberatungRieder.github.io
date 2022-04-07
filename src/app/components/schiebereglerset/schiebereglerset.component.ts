@@ -2,15 +2,25 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Schieberegler } from 'src/app/models/schieberegler.model';
 import { Zufriedenheitsfaktoren } from 'src/app/models/zufriedenheitsfaktoren.module';
 
+
+
 @Component({
-  selector: 'app-ist-analyse',
-  templateUrl: './ist-analyse.component.html',
-  styleUrls: ['./ist-analyse.component.scss'],
+  selector: 'app-schiebereglerset',
+  templateUrl: './schiebereglerset.component.html',
+  styleUrls: ['./schiebereglerset.component.scss'],
 })
-export class IstAnalyseComponent implements OnInit {
+export class SchiebereglersetComponent implements OnInit {
+  
+  @Input() Schieberegler!: Schieberegler;
   @Input() Zufriedenheitsfaktoren!: Zufriedenheitsfaktoren;
-  @Input() allSchieberegler!: Schieberegler[];
+
+  
   constructor() {}
+
+  makeInt(x:string):number{
+    return parseInt(x);
+  }
 
   ngOnInit(): void {}
 }
+

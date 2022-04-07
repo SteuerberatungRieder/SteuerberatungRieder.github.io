@@ -1,6 +1,15 @@
 <app-navbar></app-navbar>
-<app-eingabe></app-eingabe>
-<app-ist-analyse></app-ist-analyse>
-<app-auswertung></app-auswertung>
+<app-eingabe
+  [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+  [allSchieberegler]="allSchieberegler"
+></app-eingabe>
+<app-ist-analyse
+  [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+  [allSchieberegler]="allSchieberegler"
+></app-ist-analyse>
+<app-auswertung
+  [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+  [allSchieberegler]="allSchieberegler"
+></app-auswertung>
 <!-- <router-outlet></router-outlet> -->
 <app-footer></app-footer>

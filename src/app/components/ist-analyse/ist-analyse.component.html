@@ -1,7 +1,15 @@
 <div class="schieberegler">
   <div class="container px-4 py-5" id="hanging-icons">
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-4" id="sliderAllBox">
-      <app-schieberegler [Schieberegler]="regler"></app-schieberegler>
+      <div
+        class="col d-flex justify-content-center flex-column sliderbox"
+        *ngFor="let regler of allSchieberegler"
+      >
+        <app-schiebereglerset
+          [Schieberegler]="regler"
+          [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+        ></app-schiebereglerset>
+      </div>
     </div>
   </div>
 </div>

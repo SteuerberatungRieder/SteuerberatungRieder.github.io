@@ -1,0 +1,24 @@
+<h2>{{ Schieberegler.name }}: {{ Schieberegler.beschreibung }}</h2>
+<div class="container d-flex justify-content-around">
+  <div class="m-2 ml-0">
+    <app-schieberegler
+      [regler]="Schieberegler.regler1"
+      (reglerChange)="Schieberegler.regler1 = makeInt($event)"
+    ></app-schieberegler>
+    <h5>{{ Zufriedenheitsfaktoren.faktor1 }}</h5>
+  </div>
+  <div class="m-2">
+    <app-schieberegler
+      [regler]="Schieberegler.regler2"
+      (reglerChange)="Schieberegler.regler2 = makeInt($event)"
+    ></app-schieberegler>
+    <h5>{{ Zufriedenheitsfaktoren.faktor2 }}</h5>
+  </div>
+  <div class="m-2 mr-0">
+    <app-schieberegler
+      [regler]="Schieberegler.regler3"
+      (reglerChange)="Schieberegler.regler3 = makeInt($event)"
+    ></app-schieberegler>
+    <h5>{{ Zufriedenheitsfaktoren.faktor3 }}</h5>
+  </div>
+</div>
