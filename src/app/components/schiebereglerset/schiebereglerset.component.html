@@ -3,21 +3,21 @@
   <div class="m-2 ml-0">
     <app-schieberegler
       [regler]="Schieberegler.regler1"
-      (reglerChange)="Schieberegler.regler1 = makeInt($event)"
+      (reglerChange)="Schieberegler.regler1 = $event"
     ></app-schieberegler>
     <h5>{{ Zufriedenheitsfaktoren.faktor1 }}</h5>
   </div>
   <div class="m-2">
     <app-schieberegler
       [regler]="Schieberegler.regler2"
-      (reglerChange)="Schieberegler.regler2 = makeInt($event)"
+      (reglerChange)="Schieberegler.regler2 = $event"
     ></app-schieberegler>
     <h5>{{ Zufriedenheitsfaktoren.faktor2 }}</h5>
   </div>
   <div class="m-2 mr-0">
     <app-schieberegler
       [regler]="Schieberegler.regler3"
-      (reglerChange)="Schieberegler.regler3 = makeInt($event)"
+      (reglerChange)="Schieberegler.regler3 = $event"
     ></app-schieberegler>
     <h5>{{ Zufriedenheitsfaktoren.faktor3 }}</h5>
   </div>

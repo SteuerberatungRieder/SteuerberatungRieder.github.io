@@ -17,10 +17,6 @@ export class SchiebereglersetComponent implements OnInit {
   
   constructor() {}
 
-  makeInt(x:string):number{
-    return parseInt(x);
-  }
-
   ngOnInit(): void {}
 }
 

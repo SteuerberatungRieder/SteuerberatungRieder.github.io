@@ -2,6 +2,8 @@
 <app-eingabe
   [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
   [allSchieberegler]="allSchieberegler"
+  (ZufriedenheitsfaktorenChange)="Zufriedenheitsfaktoren=$event"
+  (allSchiebereglerChange)="allSchieberegler=$event"
 ></app-eingabe>
 <app-ist-analyse
   [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"

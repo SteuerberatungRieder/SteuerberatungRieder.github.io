@@ -3,9 +3,9 @@
         <div class="eingabe">
             <div class="mb-3">
                 <h4>Meine wichtigsten 3 Zufriedenheitsfaktoren sind:</h4>
-                <input type="text" id="Zufriedenheitsfaktor1" class="ZufriedenheitsEingabe m-1">
-                <input type="text" id="Zufriedenheitsfaktor2" class="ZufriedenheitsEingabe m-1">
-                <input type="text" id="Zufriedenheitsfaktor3" class="ZufriedenheitsEingabe m-1">
+                <input type="text" id="Zufriedenheitsfaktor1" class="ZufriedenheitsEingabe m-1" [value]="Zufriedenheitsfaktoren.faktor1" (keyup)="ZufriedenheitsfaktorenChange1($event)">
+                <input type="text" id="Zufriedenheitsfaktor2" class="ZufriedenheitsEingabe m-1" [value]="Zufriedenheitsfaktoren.faktor2" (keyup)="ZufriedenheitsfaktorenChange2($event)">
+                <input type="text" id="Zufriedenheitsfaktor3" class="ZufriedenheitsEingabe m-1" [value]="Zufriedenheitsfaktoren.faktor3" (keyup)="ZufriedenheitsfaktorenChange3($event)">
             </div>
             <div class="row">
                 <div class="col-sm-6 " data-name="Ich">

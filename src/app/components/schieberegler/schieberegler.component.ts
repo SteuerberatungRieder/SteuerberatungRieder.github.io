@@ -8,7 +8,7 @@ import { OnInit, Component, Input, Output, EventEmitter } from '@angular/core';
 export class SchiebereglerComponent implements OnInit {
   @Input() regler!: number;
 
-  @Output() reglerChange = new EventEmitter<string>();
+  @Output() reglerChange = new EventEmitter<number>();
 
   constructor() {}
 
@@ -32,7 +32,7 @@ export class SchiebereglerComponent implements OnInit {
       mausy = 1;
     }
     let pos = 100 - mausy * 100;
-    this.reglerChange.emit(pos.toString());
+    this.reglerChange.emit(pos);
   }
 
   touchRegler(e: TouchEvent, ZZZRegler: HTMLElement) {
@@ -54,7 +54,7 @@ export class SchiebereglerComponent implements OnInit {
     }
     
     let pos = 100 - mausy * 100;
-    this.reglerChange.emit(pos.toString());
+    this.reglerChange.emit(pos);
     
 
   }
