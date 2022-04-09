@@ -15,6 +15,7 @@ import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { IstAnalyseComponent } from './components/ist-analyse/ist-analyse.component';
 import { SchiebereglersetComponent } from './components/schiebereglerset/schiebereglerset.component';
+import { ColorGradientPipe } from './pipes/color-gradient.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SchiebereglersetComponent } from './components/schiebereglerset/schiebe
     EingabeComponent,
     AuswertungComponent,
     IstAnalyseComponent,
-    SchiebereglersetComponent
+    SchiebereglersetComponent,
+    ColorGradientPipe
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, FontAwesomeModule],
   providers: [],

@@ -14,9 +14,8 @@ export class AppComponent {
     faktor3: 'Leben',
   };
 
-  allSchieberegler: Schieberegler[] = [
+  allIchSchieberegler: Schieberegler[] = [
     {
-      name: 'Ich',
       beschreibung: 'Körper',
       locked: true,
       regler1: 0,
@@ -24,7 +23,6 @@ export class AppComponent {
       regler3: 0,
     },
     {
-      name: 'Ich',
       beschreibung: 'Seele',
       locked: true,
       regler1: 0,
@@ -32,31 +30,36 @@ export class AppComponent {
       regler3: 0,
     },
     {
-      name: 'Ich',
       beschreibung: 'Geist',
       locked: true,
       regler1: 0,
       regler2: 0,
       regler3: 0,
     },
+  ];
+
+  allFamilieSchieberegler: Schieberegler[] = [
     {
-      name: 'Familie',
       beschreibung: 'west',
       locked: false,
       regler1: 0,
       regler2: 0,
       regler3: 0,
     },
+  ];
+
+  allBerufSchieberegler: Schieberegler[] = [
     {
-      name: 'Beruf',
       beschreibung: 'west',
       locked: false,
       regler1: 0,
       regler2: 0,
       regler3: 0,
     },
+  ];
+
+  allUmweltSchieberegler: Schieberegler[] = [
     {
-      name: 'Umwelt',
       beschreibung: 'west',
       locked: false,
       regler1: 0,

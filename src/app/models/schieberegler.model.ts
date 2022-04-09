@@ -1,5 +1,4 @@
 export interface Schieberegler {
-    name:string,
     beschreibung:string,
     locked:boolean,
     regler1:number,

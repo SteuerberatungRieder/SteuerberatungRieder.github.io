@@ -19,43 +19,38 @@ export class SchiebereglerComponent implements OnInit {
       return;
     }
 
-    e.preventDefault();
-
+    
     let height = ZZZRegler.offsetHeight;
     let relativclick = e.offsetY;
     let mausy = relativclick / height;
-
-    if (mausy < 0) {
-      mausy = 0;
-    }
-    if (mausy > 1) {
-      mausy = 1;
-    }
-    let pos = 100 - mausy * 100;
-    this.reglerChange.emit(pos);
+    
+    e.preventDefault();
+    this.calcMaus(mausy);
   }
 
   touchRegler(e: TouchEvent, ZZZRegler: HTMLElement) {
     
-    e.preventDefault();
-    
-    let mausy=1;
+    let mausy = 1;
     
     let touch = e.touches;
-    let bounding =ZZZRegler.getBoundingClientRect();
+    let bounding = ZZZRegler.getBoundingClientRect();
     if (touch.length == 1) {
       mausy = (touch[0].clientY - bounding.y) / ZZZRegler.offsetHeight;
     }
+    
+    e.preventDefault();
+    this.calcMaus(mausy);
+  }
+
+  calcMaus(mausy: number) {
     if (mausy < 0) {
       mausy = 0;
     }
     if (mausy > 1) {
       mausy = 1;
     }
-    
-    let pos = 100 - mausy * 100;
-    this.reglerChange.emit(pos);
-    
 
+    let pos = Math.round(100 - mausy * 100);
+    this.reglerChange.emit(pos);
   }
 }

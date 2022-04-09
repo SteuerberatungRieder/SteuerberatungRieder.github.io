@@ -9,11 +9,18 @@ import { Zufriedenheitsfaktoren } from 'src/app/models/zufriedenheitsfaktoren.mo
 })
 export class EingabeComponent implements OnInit {
   @Input() Zufriedenheitsfaktoren!: Zufriedenheitsfaktoren;
-  @Input() allSchieberegler!: Schieberegler[];
+  @Input() allIchSchieberegler!: Schieberegler[];
+  @Input() allFamilieSchieberegler!: Schieberegler[];
+  @Input() allBerufSchieberegler!: Schieberegler[];
+  @Input() allUmweltSchieberegler!: Schieberegler[];
 
-  @Output() ZufriedenheitsfaktorenChange = new EventEmitter<Zufriedenheitsfaktoren>();
-  @Output() allSchiebereglerChange = new EventEmitter<Schieberegler[]>();
+  @Output() ZufriedenheitsfaktorenChange =
+    new EventEmitter<Zufriedenheitsfaktoren>();
 
+  @Output() allIchSchiebereglerChange = new EventEmitter<Schieberegler[]>();
+  @Output() allFamilieSchiebereglerChange = new EventEmitter<Schieberegler[]>();
+  @Output() allBerufSchiebereglerChange = new EventEmitter<Schieberegler[]>();
+  @Output() allUmweltSchiebereglerChange = new EventEmitter<Schieberegler[]>();
 
   constructor() {}
 
@@ -30,5 +37,42 @@ export class EingabeComponent implements OnInit {
   ZufriedenheitsfaktorenChange3(e: any) {
     this.Zufriedenheitsfaktoren.faktor3 = e.target.value;
     this.ZufriedenheitsfaktorenChange.emit(this.Zufriedenheitsfaktoren);
+  }
+
+  ErfuellungBereichChange(e: any): string {
+    setTimeout(() => {
+      this.updateAllSchieberegler();
+    }, 1);
+    return e.target.value;
+  }
+
+  updateAllSchieberegler() {
+    this.allIchSchiebereglerChange.emit(this.allIchSchieberegler);
+    this.allFamilieSchiebereglerChange.emit(this.allFamilieSchieberegler);
+    this.allBerufSchiebereglerChange.emit(this.allBerufSchieberegler);
+    this.allUmweltSchiebereglerChange.emit(this.allUmweltSchieberegler);
+  }
+
+  addIchSchieberegler() {
+    this.allIchSchieberegler.push(this.createRegler());
+  }
+  addFamilieSchieberegler() {
+    this.allFamilieSchieberegler.push(this.createRegler());
+  }
+  addBerufSchieberegler() {
+    this.allBerufSchieberegler.push(this.createRegler());
+  }
+  addUmweltSchieberegler() {
+    this.allUmweltSchieberegler.push(this.createRegler());
+  }
+
+  createRegler(): Schieberegler {
+    return {
+      beschreibung: '',
+      locked: false,
+      regler1: 0,
+      regler2: 0,
+      regler3: 0,
+    };
   }
 }

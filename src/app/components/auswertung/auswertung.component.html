@@ -1,1 +1,82 @@
-<p>auswertung works!</p>
+<div class="auswertung">
+  <div class="container px-4 py-5" id="hanging-icons">
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-4" id="sliderAllBox">
+      <div
+        class="col d-flex justify-content-center flex-column sliderbox"
+        *ngFor="let regler of allIchSchieberegler"
+      >
+        Ich
+        {{ regler.beschreibung }}
+        {{ regler.regler1 }}
+        {{ regler.regler2 }}
+        {{ regler.regler3 }}
+        <span
+          [ngStyle]="{
+            'background-color':
+              regler.regler1 + regler.regler2 + regler.regler3
+              | colorGradient: startColor:middleColor:endColor:min:max
+          }"
+        >
+          {{ regler.regler1 + regler.regler2 + regler.regler3 }}
+        </span>
+      </div>
+      <div
+        class="col d-flex justify-content-center flex-column sliderbox"
+        *ngFor="let regler of allFamilieSchieberegler"
+      >
+        Familie
+        {{ regler.beschreibung }}
+        {{ regler.regler1 }}
+        {{ regler.regler2 }}
+        {{ regler.regler3 }}
+        <span
+          [ngStyle]="{
+            'background-color':
+              regler.regler1 + regler.regler2 + regler.regler3
+              | colorGradient: startColor:middleColor:endColor:min:max
+          }"
+        >
+          {{ regler.regler1 + regler.regler2 + regler.regler3 }}
+        </span>
+      </div>
+      <div
+        class="col d-flex justify-content-center flex-column sliderbox"
+        *ngFor="let regler of allBerufSchieberegler"
+      >
+        Beruf
+        {{ regler.beschreibung }}
+        {{ regler.regler1 }}
+        {{ regler.regler2 }}
+        {{ regler.regler3 }}
+        <span
+          [ngStyle]="{
+            'background-color':
+              regler.regler1 + regler.regler2 + regler.regler3
+              | colorGradient: startColor:middleColor:endColor:min:max
+          }"
+        >
+          {{ regler.regler1 + regler.regler2 + regler.regler3 }}
+        </span>
+      </div>
+      <div
+        class="col d-flex justify-content-center flex-column sliderbox"
+        *ngFor="let regler of allUmweltSchieberegler"
+      >
+        Umwelt
+        {{ regler.beschreibung }}
+        {{ regler.regler1 }}
+        {{ regler.regler2 }}
+        {{ regler.regler3 }}
+        <span
+          [ngStyle]="{
+            'background-color':
+              regler.regler1 + regler.regler2 + regler.regler3
+              | colorGradient: startColor:middleColor:endColor:min:max
+          }"
+        >
+          {{ regler.regler1 + regler.regler2 + regler.regler3 }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

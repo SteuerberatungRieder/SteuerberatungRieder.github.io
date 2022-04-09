@@ -1,17 +1,35 @@
 <app-navbar></app-navbar>
 <app-eingabe
   [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
-  [allSchieberegler]="allSchieberegler"
+  [allIchSchieberegler]="allIchSchieberegler"
+  [allFamilieSchieberegler]="allFamilieSchieberegler"
+  [allBerufSchieberegler]="allBerufSchieberegler"
+  [allUmweltSchieberegler]="allUmweltSchieberegler"
+
   (ZufriedenheitsfaktorenChange)="Zufriedenheitsfaktoren=$event"
-  (allSchiebereglerChange)="allSchieberegler=$event"
-></app-eingabe>
+  (allIchSchiebereglerChange)="allIchSchieberegler=$event"
+  (allFamilieSchiebereglerChange)="allFamilieSchieberegler=$event"
+  (allBerufSchiebereglerChange)="allBerufSchieberegler=$event"
+  (allUmweltSchiebereglerChange)="allUmweltSchieberegler=$event"
+  ></app-eingabe>
 <app-ist-analyse
   [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
-  [allSchieberegler]="allSchieberegler"
+  [allIchSchieberegler]="allIchSchieberegler"
+  [allFamilieSchieberegler]="allFamilieSchieberegler"
+  [allBerufSchieberegler]="allBerufSchieberegler"
+  [allUmweltSchieberegler]="allUmweltSchieberegler"
+
+  (allIchSchiebereglerChange)="allIchSchieberegler=$event"
+  (allFamilieSchiebereglerChange)="allFamilieSchieberegler=$event"
+  (allBerufSchiebereglerChange)="allBerufSchieberegler=$event"
+  (allUmweltSchiebereglerChange)="allUmweltSchieberegler=$event"
 ></app-ist-analyse>
 <app-auswertung
   [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
-  [allSchieberegler]="allSchieberegler"
+  [allIchSchieberegler]="allIchSchieberegler"
+  [allFamilieSchieberegler]="allFamilieSchieberegler"
+  [allBerufSchieberegler]="allBerufSchieberegler"
+  [allUmweltSchieberegler]="allUmweltSchieberegler"
 ></app-auswertung>
 <!-- <router-outlet></router-outlet> -->
 <app-footer></app-footer>

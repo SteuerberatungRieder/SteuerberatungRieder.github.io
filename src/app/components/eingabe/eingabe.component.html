@@ -1,47 +1,121 @@
 <div class="px-4 py-5 my-5 text-center">
-    <div class="col-lg-6 mx-auto">
-        <div class="eingabe">
-            <div class="mb-3">
-                <h4>Meine wichtigsten 3 Zufriedenheitsfaktoren sind:</h4>
-                <input type="text" id="Zufriedenheitsfaktor1" class="ZufriedenheitsEingabe m-1" [value]="Zufriedenheitsfaktoren.faktor1" (keyup)="ZufriedenheitsfaktorenChange1($event)">
-                <input type="text" id="Zufriedenheitsfaktor2" class="ZufriedenheitsEingabe m-1" [value]="Zufriedenheitsfaktoren.faktor2" (keyup)="ZufriedenheitsfaktorenChange2($event)">
-                <input type="text" id="Zufriedenheitsfaktor3" class="ZufriedenheitsEingabe m-1" [value]="Zufriedenheitsfaktoren.faktor3" (keyup)="ZufriedenheitsfaktorenChange3($event)">
-            </div>
-            <div class="row">
-                <div class="col-sm-6 " data-name="Ich">
-                    <h4>Ich</h4>
-                    <div>
-                        <input class="ErfüllungBereich m-1" type="text" data-id="Ich0" value="Körper"
-                            disabled><br>
-                        <input class="ErfüllungBereich m-1" type="text" data-id="Ich1" value="Seele"
-                            disabled><br>
-                        <input class="ErfüllungBereich m-1" type="text" data-id="Ich2" value="Geist"
-                            disabled><br>
-                    </div>
-                    <button class="btn btn-success addBereich"><fa-icon icon="plus"></fa-icon></button>
-                </div>
-                <div class="col-sm-6" data-name="Familie">
-                    <h4>Familie</h4>
-                    <div>
-                        <input class="ErfüllungBereich m-1" type="text" data-id="Familie0" value=""><br>
-                    </div>
-                    <button class="btn btn-success addBereich"><fa-icon icon="plus"></fa-icon></button>
-                </div>
-                <div class="col-sm-6" data-name="Beruf">
-                    <h4>Beruf</h4>
-                    <div>
-                        <input class="ErfüllungBereich m-1" type="text" data-id="Beruf0" value=""><br>
-                    </div>
-                    <button class="btn btn-success addBereich"><fa-icon icon="plus"></fa-icon></button>
-                </div>
-                <div class="col-sm-6" data-name="Umwelt">
-                    <h4>Umwelt</h4>
-                    <div>
-                        <input class="ErfüllungBereich m-1" type="text" data-id="Umwelt0" value=""><br>
-                    </div>
-                    <button class="btn btn-success addBereich"><fa-icon icon="plus"></fa-icon></button>
-                </div>
-            </div>
+  <div class="col-lg-6 mx-auto">
+    <div class="eingabe">
+      <div class="mb-3">
+        <h4>Meine wichtigsten 3 Zufriedenheitsfaktoren sind:</h4>
+        <input
+          type="text"
+          id="Zufriedenheitsfaktor1"
+          class="ZufriedenheitsEingabe m-1"
+          [value]="Zufriedenheitsfaktoren.faktor1"
+          (keyup)="ZufriedenheitsfaktorenChange1($event)"
+        />
+        <input
+          type="text"
+          id="Zufriedenheitsfaktor2"
+          class="ZufriedenheitsEingabe m-1"
+          [value]="Zufriedenheitsfaktoren.faktor2"
+          (keyup)="ZufriedenheitsfaktorenChange2($event)"
+        />
+        <input
+          type="text"
+          id="Zufriedenheitsfaktor3"
+          class="ZufriedenheitsEingabe m-1"
+          [value]="Zufriedenheitsfaktoren.faktor3"
+          (keyup)="ZufriedenheitsfaktorenChange3($event)"
+        />
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <h4>Ich</h4>
+          <div>
+            <p
+              class="m-1"
+              *ngFor="let Schieberegler of allIchSchieberegler; index as i"
+            >
+              <input
+                class="ErfüllungBereich"
+                type="text"
+                [value]="Schieberegler.beschreibung"
+                [disabled]="Schieberegler.locked"
+                (keyup)="
+                  Schieberegler.beschreibung = ErfuellungBereichChange($event)
+                "
+              />
+            </p>
+          </div>
+          <button class="btn btn-success" (click)="addIchSchieberegler()">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
         </div>
+
+        <div class="col-sm-6">
+          <h4>Familie</h4>
+          <div>
+            <p
+              class="m-1"
+              *ngFor="let Schieberegler of allFamilieSchieberegler; index as i"
+            >
+              <input
+                class="ErfüllungBereich"
+                type="text"
+                [value]="Schieberegler.beschreibung"
+                [disabled]="Schieberegler.locked"
+                (keyup)="
+                  Schieberegler.beschreibung = ErfuellungBereichChange($event)
+                "
+              />
+            </p>
+          </div>
+          <button class="btn btn-success" (click)="addFamilieSchieberegler()">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+        <div class="col-sm-6">
+          <h4>Beruf</h4>
+          <div>
+            <p
+              class="m-1"
+              *ngFor="let Schieberegler of allBerufSchieberegler; index as i"
+            >
+              <input
+                class="ErfüllungBereich"
+                type="text"
+                [value]="Schieberegler.beschreibung"
+                [disabled]="Schieberegler.locked"
+                (keyup)="
+                  Schieberegler.beschreibung = ErfuellungBereichChange($event)
+                "
+              />
+            </p>
+          </div>
+          <button class="btn btn-success" (click)="addBerufSchieberegler()">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+        <div class="col-sm-6">
+          <h4>Umwelt</h4>
+          <div>
+            <p
+              class="m-1"
+              *ngFor="let Schieberegler of allUmweltSchieberegler; index as i"
+            >
+              <input
+                class="ErfüllungBereich"
+                type="text"
+                [value]="Schieberegler.beschreibung"
+                [disabled]="Schieberegler.locked"
+                (keyup)="
+                  Schieberegler.beschreibung = ErfuellungBereichChange($event)
+                "
+              />
+            </p>
+          </div>
+          <button class="btn btn-success" (click)="addUmweltSchieberegler()">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
