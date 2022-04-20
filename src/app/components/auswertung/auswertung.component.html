@@ -1,16 +1,33 @@
-<div class="auswertung">
-  <div class="container px-4 py-5" id="hanging-icons">
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-4" id="sliderAllBox">
-      <div
-        class="col d-flex justify-content-center flex-column sliderbox"
-        *ngFor="let regler of allIchSchieberegler"
-      >
-        Ich
-        {{ regler.beschreibung }}
-        {{ regler.regler1 }}
-        {{ regler.regler2 }}
-        {{ regler.regler3 }}
-        <span
+<div class="auswertung d-flex justify-content-center">
+  <table class="container table table-striped table-borderless">
+    <thead>
+      <tr>
+        <th>test</th>
+        <th>Test</th>
+        <th>{{ Zufriedenheitsfaktoren.faktor1 }}</th>
+        <th>{{ Zufriedenheitsfaktoren.faktor2 }}</th>
+        <th>{{ Zufriedenheitsfaktoren.faktor3 }}</th>
+        <th>Summe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row g-4 py-5 row-cols-1 row-cols-lg-4 -->
+      <tr class="" *ngFor="let regler of allIchSchieberegler; first as isFirst">
+        <th scope="row"><span *ngIf="isFirst">Ich</span></th>
+        <td>
+          {{ regler.beschreibung }}
+        </td>
+
+        <td>
+          {{ regler.regler1 }}
+        </td>
+        <td>
+          {{ regler.regler2 }}
+        </td>
+        <td>
+          {{ regler.regler3 }}
+        </td>
+        <td
           [ngStyle]="{
             'background-color':
               regler.regler1 + regler.regler2 + regler.regler3
@@ -18,18 +35,24 @@
           }"
         >
           {{ regler.regler1 + regler.regler2 + regler.regler3 }}
-        </span>
-      </div>
-      <div
-        class="col d-flex justify-content-center flex-column sliderbox"
-        *ngFor="let regler of allFamilieSchieberegler"
-      >
-        Familie
-        {{ regler.beschreibung }}
-        {{ regler.regler1 }}
-        {{ regler.regler2 }}
-        {{ regler.regler3 }}
-        <span
+        </td>
+      </tr>
+      <tr class="" *ngFor="let regler of allFamilieSchieberegler; first as isFirst">
+        <th scope="row"><span *ngIf="isFirst">Familie</span></th>
+        <td>
+          {{ regler.beschreibung }}
+        </td>
+
+        <td>
+          {{ regler.regler1 }}
+        </td>
+        <td>
+          {{ regler.regler2 }}
+        </td>
+        <td>
+          {{ regler.regler3 }}
+        </td>
+        <td
           [ngStyle]="{
             'background-color':
               regler.regler1 + regler.regler2 + regler.regler3
@@ -37,18 +60,24 @@
           }"
         >
           {{ regler.regler1 + regler.regler2 + regler.regler3 }}
-        </span>
-      </div>
-      <div
-        class="col d-flex justify-content-center flex-column sliderbox"
-        *ngFor="let regler of allBerufSchieberegler"
-      >
-        Beruf
-        {{ regler.beschreibung }}
-        {{ regler.regler1 }}
-        {{ regler.regler2 }}
-        {{ regler.regler3 }}
-        <span
+        </td>
+      </tr>
+      <tr class="" *ngFor="let regler of allBerufSchieberegler; first as isFirst">
+        <th scope="row"><span *ngIf="isFirst">Beruf</span></th>
+        <td>
+          {{ regler.beschreibung }}
+        </td>
+
+        <td>
+          {{ regler.regler1 }}
+        </td>
+        <td>
+          {{ regler.regler2 }}
+        </td>
+        <td>
+          {{ regler.regler3 }}
+        </td>
+        <td
           [ngStyle]="{
             'background-color':
               regler.regler1 + regler.regler2 + regler.regler3
@@ -56,18 +85,24 @@
           }"
         >
           {{ regler.regler1 + regler.regler2 + regler.regler3 }}
-        </span>
-      </div>
-      <div
-        class="col d-flex justify-content-center flex-column sliderbox"
-        *ngFor="let regler of allUmweltSchieberegler"
-      >
-        Umwelt
-        {{ regler.beschreibung }}
-        {{ regler.regler1 }}
-        {{ regler.regler2 }}
-        {{ regler.regler3 }}
-        <span
+        </td>
+      </tr>
+      <tr class="" *ngFor="let regler of allUmweltSchieberegler; first as isFirst">
+        <th scope="row"><span *ngIf="isFirst">Umwelt</span></th>
+        <td>
+          {{ regler.beschreibung }}
+        </td>
+
+        <td>
+          {{ regler.regler1 }}
+        </td>
+        <td>
+          {{ regler.regler2 }}
+        </td>
+        <td>
+          {{ regler.regler3 }}
+        </td>
+        <td
           [ngStyle]="{
             'background-color':
               regler.regler1 + regler.regler2 + regler.regler3
@@ -75,8 +110,8 @@
           }"
         >
           {{ regler.regler1 + regler.regler2 + regler.regler3 }}
-        </span>
-      </div>
-    </div>
-  </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
