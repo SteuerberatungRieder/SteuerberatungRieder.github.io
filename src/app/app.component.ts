@@ -9,9 +9,9 @@ import { Zufriedenheitsfaktoren } from './models/zufriedenheitsfaktoren.module';
 })
 export class AppComponent {
   Zufriedenheitsfaktoren: Zufriedenheitsfaktoren = {
-    faktor1: 'Liebe',
-    faktor2: 'Freude',
-    faktor3: 'Leben',
+    faktor1: '',
+    faktor2: '',
+    faktor3: '',
   };
 
   allIchSchieberegler: Schieberegler[] = [
@@ -40,7 +40,7 @@ export class AppComponent {
 
   allFamilieSchieberegler: Schieberegler[] = [
     {
-      beschreibung: 'west',
+      beschreibung: '',
       locked: false,
       regler1: 0,
       regler2: 0,
@@ -50,7 +50,7 @@ export class AppComponent {
 
   allBerufSchieberegler: Schieberegler[] = [
     {
-      beschreibung: 'west',
+      beschreibung: '',
       locked: false,
       regler1: 0,
       regler2: 0,
@@ -60,7 +60,7 @@ export class AppComponent {
 
   allUmweltSchieberegler: Schieberegler[] = [
     {
-      beschreibung: 'west',
+      beschreibung: '',
       locked: false,
       regler1: 0,
       regler2: 0,
