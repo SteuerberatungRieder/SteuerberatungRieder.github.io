@@ -1,7 +1,7 @@
 <h2>{{ beschreibung }}: {{ MainSchieberegler.beschreibung }}</h2>
 <div class="container d-flex justify-content-around">
   <div class="m-2 ml-0">
-    <h5>{{ MainSchieberegler.regler1 }}</h5>
+    <!-- <h5>{{ MainSchieberegler.regler1 }}</h5> -->
     <app-schieberegler
       [regler]="MainSchieberegler.regler1"
       (reglerChange)="MainSchieberegler.regler1 = reglerChange($event)"
@@ -9,7 +9,7 @@
     <h5>{{ Zufriedenheitsfaktoren.faktor1 }}</h5>
   </div>
   <div class="m-2">
-    <h5>{{ MainSchieberegler.regler2 }}</h5>
+    <!-- <h5>{{ MainSchieberegler.regler2 }}</h5> -->
     <app-schieberegler
       [regler]="MainSchieberegler.regler2"
       (reglerChange)="MainSchieberegler.regler2 = reglerChange($event)"
@@ -17,7 +17,7 @@
     <h5>{{ Zufriedenheitsfaktoren.faktor2 }}</h5>
   </div>
   <div class="m-2 mr-0">
-    <h5>{{ MainSchieberegler.regler3 }}</h5>
+    <!-- <h5>{{ MainSchieberegler.regler3 }}</h5> -->
     <app-schieberegler
       [regler]="MainSchieberegler.regler3"
       (reglerChange)="MainSchieberegler.regler3 = reglerChange($event)"
