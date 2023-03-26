@@ -29,18 +29,14 @@
         <div class="col-sm-6">
           <h4>Ich</h4>
           <div>
-            <p
-              class="m-1"
-              *ngFor="let Schieberegler of allIchSchieberegler; index as i"
-            >
+            <p class="m-1" *ngFor="let Schieberegler of allIchSchieberegler; index as i">
               <input
+                #IchSchieberegler
                 class="ErfüllungBereich"
                 type="text"
                 [value]="Schieberegler.beschreibung"
                 [disabled]="Schieberegler.locked"
-                (keyup)="
-                  Schieberegler.beschreibung = ErfuellungBereichChange($event)
-                "
+                (keyup)="Schieberegler.beschreibung = ErfuellungBereichChange($event)"
               />
             </p>
           </div>
@@ -57,13 +53,12 @@
               *ngFor="let Schieberegler of allFamilieSchieberegler; index as i"
             >
               <input
+                #FamilieSchieberegler
                 class="ErfüllungBereich"
                 type="text"
                 [value]="Schieberegler.beschreibung"
                 [disabled]="Schieberegler.locked"
-                (keyup)="
-                  Schieberegler.beschreibung = ErfuellungBereichChange($event)
-                "
+                (keyup)="Schieberegler.beschreibung = ErfuellungBereichChange($event)"
               />
             </p>
           </div>
@@ -79,13 +74,12 @@
               *ngFor="let Schieberegler of allBerufSchieberegler; index as i"
             >
               <input
+                #BerufSchieberegler
                 class="ErfüllungBereich"
                 type="text"
                 [value]="Schieberegler.beschreibung"
                 [disabled]="Schieberegler.locked"
-                (keyup)="
-                  Schieberegler.beschreibung = ErfuellungBereichChange($event)
-                "
+                (keyup)="Schieberegler.beschreibung = ErfuellungBereichChange($event)"
               />
             </p>
           </div>
@@ -101,13 +95,12 @@
               *ngFor="let Schieberegler of allUmweltSchieberegler; index as i"
             >
               <input
+                #UmweltSchieberegler
                 class="ErfüllungBereich"
                 type="text"
                 [value]="Schieberegler.beschreibung"
                 [disabled]="Schieberegler.locked"
-                (keyup)="
-                  Schieberegler.beschreibung = ErfuellungBereichChange($event)
-                "
+                (keyup)="Schieberegler.beschreibung = ErfuellungBereichChange($event)"
               />
             </p>
           </div>
