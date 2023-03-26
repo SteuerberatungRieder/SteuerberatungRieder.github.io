@@ -5,24 +5,22 @@
   [allFamilieSchieberegler]="allFamilieSchieberegler"
   [allBerufSchieberegler]="allBerufSchieberegler"
   [allUmweltSchieberegler]="allUmweltSchieberegler"
-
-  (ZufriedenheitsfaktorenChange)="Zufriedenheitsfaktoren=$event"
-  (allIchSchiebereglerChange)="allIchSchieberegler=$event"
-  (allFamilieSchiebereglerChange)="allFamilieSchieberegler=$event"
-  (allBerufSchiebereglerChange)="allBerufSchieberegler=$event"
-  (allUmweltSchiebereglerChange)="allUmweltSchieberegler=$event"
-  ></app-eingabe>
+  (ZufriedenheitsfaktorenChange)="Zufriedenheitsfaktoren = $event"
+  (allIchSchiebereglerChange)="allIchSchieberegler = $event"
+  (allFamilieSchiebereglerChange)="allFamilieSchieberegler = $event"
+  (allBerufSchiebereglerChange)="allBerufSchieberegler = $event"
+  (allUmweltSchiebereglerChange)="allUmweltSchieberegler = $event"
+></app-eingabe>
 <app-ist-analyse
   [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
   [allIchSchieberegler]="allIchSchieberegler"
   [allFamilieSchieberegler]="allFamilieSchieberegler"
   [allBerufSchieberegler]="allBerufSchieberegler"
   [allUmweltSchieberegler]="allUmweltSchieberegler"
-
-  (allIchSchiebereglerChange)="allIchSchieberegler=$event"
-  (allFamilieSchiebereglerChange)="allFamilieSchieberegler=$event"
-  (allBerufSchiebereglerChange)="allBerufSchieberegler=$event"
-  (allUmweltSchiebereglerChange)="allUmweltSchieberegler=$event"
+  (allIchSchiebereglerChange)="allIchSchieberegler = $event"
+  (allFamilieSchiebereglerChange)="allFamilieSchieberegler = $event"
+  (allBerufSchiebereglerChange)="allBerufSchieberegler = $event"
+  (allUmweltSchiebereglerChange)="allUmweltSchieberegler = $event"
 ></app-ist-analyse>
 <app-auswertung
   [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
@@ -31,4 +29,11 @@
   [allBerufSchieberegler]="allBerufSchieberegler"
   [allUmweltSchieberegler]="allUmweltSchieberegler"
 ></app-auswertung>
+<app-csvdownload
+  [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+  [allIchSchieberegler]="allIchSchieberegler"
+  [allFamilieSchieberegler]="allFamilieSchieberegler"
+  [allBerufSchieberegler]="allBerufSchieberegler"
+  [allUmweltSchieberegler]="allUmweltSchieberegler"
+></app-csvdownload>
 <!-- <app-footer></app-footer> -->
