@@ -1,0 +1,135 @@
+<div class="px-4 py-5 my-5 text-center">
+  <div class="col-lg-6 mx-auto">
+    <div class="eingabe">
+      <div class="mb-3">
+        <h4>Meine wichtigsten 3 Zufriedenheitsfaktoren sind:</h4>
+        <input
+          type="text"
+          id="Zufriedenheitsfaktor1"
+          class="ZufriedenheitsEingabe m-1"
+          [value]="Zufriedenheitsfaktoren.faktor1"
+          (keyup)="ZufriedenheitsfaktorenChange1($event)"
+        />
+        <input
+          type="text"
+          id="Zufriedenheitsfaktor2"
+          class="ZufriedenheitsEingabe m-1"
+          [value]="Zufriedenheitsfaktoren.faktor2"
+          (keyup)="ZufriedenheitsfaktorenChange2($event)"
+        />
+        <input
+          type="text"
+          id="Zufriedenheitsfaktor3"
+          class="ZufriedenheitsEingabe m-1"
+          [value]="Zufriedenheitsfaktoren.faktor3"
+          (keyup)="ZufriedenheitsfaktorenChange3($event)"
+        />
+      </div>
+      <div class="row">
+        <div class="col-sm-6" *ngIf="extraRegler">
+          <h4>Ich</h4>
+          <div>
+            <p class="m-1" *ngFor="let Schieberegler of allIchSchieberegler; index as i">
+              <input
+                #IchSchieberegler
+                class="ErfüllungBereich"
+                type="text"
+                [value]="Schieberegler.beschreibung"
+                [disabled]="Schieberegler.locked"
+                (keyup)="Schieberegler.beschreibung = ErfuellungBereichChange($event)"
+              />
+            </p>
+          </div>
+          <button class="btn btn-success" (click)="addIchSchieberegler()">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+
+        <div class="col-sm-6" *ngIf="extraRegler">
+          <h4>Familie</h4>
+          <div>
+            <p
+              class="m-1"
+              *ngFor="let Schieberegler of allFamilieSchieberegler; index as i"
+            >
+              <input
+                #FamilieSchieberegler
+                class="ErfüllungBereich"
+                type="text"
+                [value]="Schieberegler.beschreibung"
+                [disabled]="Schieberegler.locked"
+                (keyup)="Schieberegler.beschreibung = ErfuellungBereichChange($event)"
+              />
+            </p>
+          </div>
+          <button class="btn btn-success" (click)="addFamilieSchieberegler()">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+        <div class="col-sm-6" *ngIf="extraRegler">
+          <h4>Beruf</h4>
+          <div>
+            <p
+              class="m-1"
+              *ngFor="let Schieberegler of allBerufSchieberegler; index as i"
+            >
+              <input
+                #BerufSchieberegler
+                class="ErfüllungBereich"
+                type="text"
+                [value]="Schieberegler.beschreibung"
+                [disabled]="Schieberegler.locked"
+                (keyup)="Schieberegler.beschreibung = ErfuellungBereichChange($event)"
+              />
+            </p>
+          </div>
+          <button class="btn btn-success" (click)="addBerufSchieberegler()">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+        <div class="col-sm-6" *ngIf="extraRegler">
+          <h4>Umwelt</h4>
+          <div>
+            <p
+              class="m-1"
+              *ngFor="let Schieberegler of allUmweltSchieberegler; index as i"
+            >
+              <input
+                #UmweltSchieberegler
+                class="ErfüllungBereich"
+                type="text"
+                [value]="Schieberegler.beschreibung"
+                [disabled]="Schieberegler.locked"
+                (keyup)="Schieberegler.beschreibung = ErfuellungBereichChange($event)"
+              />
+            </p>
+          </div>
+          <button class="btn btn-success" (click)="addUmweltSchieberegler()">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+        <div class="col-sm-12" *ngIf="!extraRegler">
+          <h4>Generell</h4>
+          <div>
+            <p
+              class="m-1"
+              *ngFor="let Schieberegler of allGenerellSchieberegler; index as i"
+            >
+              <input
+                #GenerellSchieberegler
+                class="ErfüllungBereich"
+                type="text"
+                [value]="Schieberegler.beschreibung"
+                [disabled]="Schieberegler.locked"
+                (keyup)="Schieberegler.beschreibung = ErfuellungBereichChange($event)"
+              />
+            </p>
+          </div>
+          <button class="btn btn-success" (click)="addGenerellSchieberegler()">
+            <fa-icon icon="plus"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

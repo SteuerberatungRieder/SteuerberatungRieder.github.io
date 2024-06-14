@@ -1,0 +1,13 @@
+<div
+  class="ZZZRegler"
+  #ZZZRegler
+  (mousedown)="mouseRegler($event, ZZZRegler)"
+  (mousemove)="mouseRegler($event, ZZZRegler)"
+  (touchstart)="touchRegler($event, ZZZRegler)"
+  (touchmove)="touchRegler($event, ZZZRegler)"
+>
+  <div
+    class="ZZZReglerAfter"
+    [ngStyle]="{ height: 100 - this.regler + '%' }"
+  ></div>
+</div>

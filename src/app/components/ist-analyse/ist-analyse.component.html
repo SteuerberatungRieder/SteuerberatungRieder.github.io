@@ -1,0 +1,81 @@
+<div class="schieberegler">
+  <div class="container px-4 py-5" id="hanging-icons">
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-4" id="sliderAllBox">
+      <ng-container *ngIf="extraRegler">
+        <div
+          class="col d-flex justify-content-center flex-column sliderbox"
+          *ngFor="let regler of allIchSchieberegler"
+        >
+          <app-schiebereglerset
+            [MainSchieberegler]="regler"
+            [beschreibung]="'Ich'"
+            [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+            (Schieberegler1Change)="regler.regler1 = SchiebereglerChangeFunc($event)"
+            (Schieberegler2Change)="regler.regler2 = SchiebereglerChangeFunc($event)"
+            (Schieberegler3Change)="regler.regler3 = SchiebereglerChangeFunc($event)"
+          ></app-schiebereglerset>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="extraRegler">
+        <div
+          class="col d-flex justify-content-center flex-column sliderbox"
+          *ngFor="let regler of allFamilieSchieberegler"
+        >
+          <app-schiebereglerset
+            [MainSchieberegler]="regler"
+            [beschreibung]="'Familie'"
+            [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+            (Schieberegler1Change)="regler.regler1 = SchiebereglerChangeFunc($event)"
+            (Schieberegler2Change)="regler.regler2 = SchiebereglerChangeFunc($event)"
+            (Schieberegler3Change)="regler.regler3 = SchiebereglerChangeFunc($event)"
+          ></app-schiebereglerset>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="extraRegler">
+        <div
+          class="col d-flex justify-content-center flex-column sliderbox"
+          *ngFor="let regler of allBerufSchieberegler"
+        >
+          <app-schiebereglerset
+            [MainSchieberegler]="regler"
+            [beschreibung]="'Beruf'"
+            [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+            (Schieberegler1Change)="regler.regler1 = SchiebereglerChangeFunc($event)"
+            (Schieberegler2Change)="regler.regler2 = SchiebereglerChangeFunc($event)"
+            (Schieberegler3Change)="regler.regler3 = SchiebereglerChangeFunc($event)"
+          ></app-schiebereglerset>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="extraRegler">
+        <div
+          class="col d-flex justify-content-center flex-column sliderbox"
+          *ngFor="let regler of allUmweltSchieberegler"
+        >
+          <app-schiebereglerset
+            [MainSchieberegler]="regler"
+            [beschreibung]="'Umwelt'"
+            [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+            (Schieberegler1Change)="regler.regler1 = SchiebereglerChangeFunc($event)"
+            (Schieberegler2Change)="regler.regler2 = SchiebereglerChangeFunc($event)"
+            (Schieberegler3Change)="regler.regler3 = SchiebereglerChangeFunc($event)"
+          ></app-schiebereglerset>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!extraRegler">
+        <div
+          class="col d-flex justify-content-center flex-column sliderbox"
+          *ngFor="let regler of allGenerellSchieberegler"
+        >
+          <app-schiebereglerset
+            [MainSchieberegler]="regler"
+            [beschreibung]="'Generell'"
+            [Zufriedenheitsfaktoren]="Zufriedenheitsfaktoren"
+            (Schieberegler1Change)="regler.regler1 = SchiebereglerChangeFunc($event)"
+            (Schieberegler2Change)="regler.regler2 = SchiebereglerChangeFunc($event)"
+            (Schieberegler3Change)="regler.regler3 = SchiebereglerChangeFunc($event)"
+          ></app-schiebereglerset>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
