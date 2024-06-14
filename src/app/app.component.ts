@@ -68,7 +68,27 @@ export class AppComponent {
     },
   ];
 
+  allGenerellSchieberegler: Schieberegler[] = [
+    {
+      beschreibung: '',
+      locked: false,
+      regler1: 0,
+      regler2: 0,
+      regler3: 0,
+    },
+  ];
+
   title = 'SteuerberatungRieder.github.io';
 
+  extraRegler = false;
+
   ZufriedenheitsfaktorenChange(e: any) {}
+
+  constructor() {
+    const queryParams = new URLSearchParams(window.location.search);
+
+    // To get a specific query parameter value
+    const paramValue = queryParams.get('extraRegler');
+    this.extraRegler = paramValue != null;
+  }
 }

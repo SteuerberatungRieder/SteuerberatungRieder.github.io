@@ -9,15 +9,18 @@ import { Zufriedenheitsfaktoren } from 'src/app/models/zufriedenheitsfaktoren.mo
 })
 export class IstAnalyseComponent implements OnInit {
   @Input() Zufriedenheitsfaktoren!: Zufriedenheitsfaktoren;
+  @Input() extraRegler!: boolean;
   @Input() allIchSchieberegler!: Schieberegler[];
   @Input() allFamilieSchieberegler!: Schieberegler[];
   @Input() allBerufSchieberegler!: Schieberegler[];
   @Input() allUmweltSchieberegler!: Schieberegler[];
+  @Input() allGenerellSchieberegler!: Schieberegler[];
 
   @Output() allIchSchiebereglerChange = new EventEmitter<Schieberegler[]>();
   @Output() allFamilieSchiebereglerChange = new EventEmitter<Schieberegler[]>();
   @Output() allBerufSchiebereglerChange = new EventEmitter<Schieberegler[]>();
   @Output() allUmweltSchiebereglerChange = new EventEmitter<Schieberegler[]>();
+  @Output() allGenerellSchiebereglerChange = new EventEmitter<Schieberegler[]>();
 
   constructor() {}
 
@@ -35,5 +38,6 @@ export class IstAnalyseComponent implements OnInit {
     this.allFamilieSchiebereglerChange.emit(this.allFamilieSchieberegler);
     this.allBerufSchiebereglerChange.emit(this.allBerufSchieberegler);
     this.allUmweltSchiebereglerChange.emit(this.allUmweltSchieberegler);
+    this.allGenerellSchiebereglerChange.emit(this.allGenerellSchieberegler);
   }
 }

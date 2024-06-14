@@ -9,19 +9,19 @@ import { Zufriedenheitsfaktoren } from 'src/app/models/zufriedenheitsfaktoren.mo
 })
 export class CSVdownloadComponent implements OnInit {
   @Input() Zufriedenheitsfaktoren!: Zufriedenheitsfaktoren;
+  @Input() extraRegler!: boolean;
   @Input() allIchSchieberegler!: Schieberegler[];
   @Input() allFamilieSchieberegler!: Schieberegler[];
   @Input() allBerufSchieberegler!: Schieberegler[];
   @Input() allUmweltSchieberegler!: Schieberegler[];
+  @Input() allGenerellSchieberegler!: Schieberegler[];
   constructor() {}
 
   ngOnInit(): void {}
   downloadCSV() {
     let CSV = this.genCSV();
     console.log(CSV);
-    this.download(
-      'zufriedenheitsfaktoren.csv',
-      CSV);
+    this.download('zufriedenheitsfaktoren.csv', CSV);
   }
 
   download(filename: string, text: string) {
@@ -65,13 +65,18 @@ export class CSVdownloadComponent implements OnInit {
       allUmweltSchiebereglerCSV =
         allUmweltSchiebereglerCSV + this.genCSVRow('Umwelt', UmweltSchieberegler);
     });
-    return (
-      header +
-      allIchSchiebereglerCSV +
-      allFamilieSchiebereglerCSV +
-      allBerufSchiebereglerCSV +
-      allUmweltSchiebereglerCSV
-    );
+    let allGenerellSchiebereglerCSV = '';
+    this.allGenerellSchieberegler.forEach((GenerellSchieberegler) => {
+      allGenerellSchiebereglerCSV =
+        allGenerellSchiebereglerCSV + this.genCSVRow('Generell', GenerellSchieberegler);
+    });
+    return this.extraRegler
+      ? header +
+          allIchSchiebereglerCSV +
+          allFamilieSchiebereglerCSV +
+          allBerufSchiebereglerCSV +
+          allUmweltSchiebereglerCSV
+      : header + allGenerellSchiebereglerCSV;
   }
   genCSVRow(ort: string, schieberegler: Schieberegler): string {
     return (

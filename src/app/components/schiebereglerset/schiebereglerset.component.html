@@ -1,4 +1,7 @@
-<h2>{{ beschreibung }}: {{ MainSchieberegler.beschreibung }}</h2>
+<h2>
+  <span *ngIf="beschreibung">{{ beschreibung }}:</span>
+  {{ MainSchieberegler.beschreibung }}
+</h2>
 <div class="container d-flex justify-content-around">
   <div class="m-2 ml-0">
     <!-- <h5>{{ MainSchieberegler.regler1 }}</h5> -->

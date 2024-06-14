@@ -12,106 +12,141 @@
     </thead>
     <tbody>
       <!-- row g-4 py-5 row-cols-1 row-cols-lg-4 -->
-      <tr class="" *ngFor="let regler of allIchSchieberegler; first as isFirst">
-        <th scope="row"><span *ngIf="isFirst">Ich</span></th>
-        <td>
-          {{ regler.beschreibung }}
-        </td>
+      <ng-container *ngIf="extraRegler">
+        <tr class="" *ngFor="let regler of allIchSchieberegler; first as isFirst">
+          <th scope="row"><span *ngIf="isFirst">Ich</span></th>
+          <td>
+            {{ regler.beschreibung }}
+          </td>
 
-        <td>
-          {{ regler.regler1 }}
-        </td>
-        <td>
-          {{ regler.regler2 }}
-        </td>
-        <td>
-          {{ regler.regler3 }}
-        </td>
-        <td
-          [ngStyle]="{
-            'background-color':
-              regler.regler1 + regler.regler2 + regler.regler3
-              | colorGradient: startColor:middleColor:endColor:min:max
-          }"
-        >
-          {{ regler.regler1 + regler.regler2 + regler.regler3 }}
-        </td>
-      </tr>
-      <tr class="" *ngFor="let regler of allFamilieSchieberegler; first as isFirst">
-        <th scope="row"><span *ngIf="isFirst">Familie</span></th>
-        <td>
-          {{ regler.beschreibung }}
-        </td>
+          <td>
+            {{ regler.regler1 }}
+          </td>
+          <td>
+            {{ regler.regler2 }}
+          </td>
+          <td>
+            {{ regler.regler3 }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color':
+                regler.regler1 + regler.regler2 + regler.regler3
+                | colorGradient : startColor : middleColor : endColor : min : max
+            }"
+          >
+            {{ regler.regler1 + regler.regler2 + regler.regler3 }}
+          </td>
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="extraRegler">
+        <tr class="" *ngFor="let regler of allFamilieSchieberegler; first as isFirst">
+          <th scope="row"><span *ngIf="isFirst">Familie</span></th>
+          <td>
+            {{ regler.beschreibung }}
+          </td>
 
-        <td>
-          {{ regler.regler1 }}
-        </td>
-        <td>
-          {{ regler.regler2 }}
-        </td>
-        <td>
-          {{ regler.regler3 }}
-        </td>
-        <td
-          [ngStyle]="{
-            'background-color':
-              regler.regler1 + regler.regler2 + regler.regler3
-              | colorGradient: startColor:middleColor:endColor:min:max
-          }"
-        >
-          {{ regler.regler1 + regler.regler2 + regler.regler3 }}
-        </td>
-      </tr>
-      <tr class="" *ngFor="let regler of allBerufSchieberegler; first as isFirst">
-        <th scope="row"><span *ngIf="isFirst">Beruf</span></th>
-        <td>
-          {{ regler.beschreibung }}
-        </td>
+          <td>
+            {{ regler.regler1 }}
+          </td>
+          <td>
+            {{ regler.regler2 }}
+          </td>
+          <td>
+            {{ regler.regler3 }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color':
+                regler.regler1 + regler.regler2 + regler.regler3
+                | colorGradient : startColor : middleColor : endColor : min : max
+            }"
+          >
+            {{ regler.regler1 + regler.regler2 + regler.regler3 }}
+          </td>
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="extraRegler">
+        <tr class="" *ngFor="let regler of allBerufSchieberegler; first as isFirst">
+          <th scope="row"><span *ngIf="isFirst">Beruf</span></th>
+          <td>
+            {{ regler.beschreibung }}
+          </td>
 
-        <td>
-          {{ regler.regler1 }}
-        </td>
-        <td>
-          {{ regler.regler2 }}
-        </td>
-        <td>
-          {{ regler.regler3 }}
-        </td>
-        <td
-          [ngStyle]="{
-            'background-color':
-              regler.regler1 + regler.regler2 + regler.regler3
-              | colorGradient: startColor:middleColor:endColor:min:max
-          }"
-        >
-          {{ regler.regler1 + regler.regler2 + regler.regler3 }}
-        </td>
-      </tr>
-      <tr class="" *ngFor="let regler of allUmweltSchieberegler; first as isFirst">
-        <th scope="row"><span *ngIf="isFirst">Umwelt</span></th>
-        <td>
-          {{ regler.beschreibung }}
-        </td>
+          <td>
+            {{ regler.regler1 }}
+          </td>
+          <td>
+            {{ regler.regler2 }}
+          </td>
+          <td>
+            {{ regler.regler3 }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color':
+                regler.regler1 + regler.regler2 + regler.regler3
+                | colorGradient : startColor : middleColor : endColor : min : max
+            }"
+          >
+            {{ regler.regler1 + regler.regler2 + regler.regler3 }}
+          </td>
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="extraRegler">
+        <tr class="" *ngFor="let regler of allUmweltSchieberegler; first as isFirst">
+          <th scope="row"><span *ngIf="isFirst">Umwelt</span></th>
+          <td>
+            {{ regler.beschreibung }}
+          </td>
 
-        <td>
-          {{ regler.regler1 }}
-        </td>
-        <td>
-          {{ regler.regler2 }}
-        </td>
-        <td>
-          {{ regler.regler3 }}
-        </td>
-        <td
-          [ngStyle]="{
-            'background-color':
-              regler.regler1 + regler.regler2 + regler.regler3
-              | colorGradient: startColor:middleColor:endColor:min:max
-          }"
-        >
-          {{ regler.regler1 + regler.regler2 + regler.regler3 }}
-        </td>
-      </tr>
+          <td>
+            {{ regler.regler1 }}
+          </td>
+          <td>
+            {{ regler.regler2 }}
+          </td>
+          <td>
+            {{ regler.regler3 }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color':
+                regler.regler1 + regler.regler2 + regler.regler3
+                | colorGradient : startColor : middleColor : endColor : min : max
+            }"
+          >
+            {{ regler.regler1 + regler.regler2 + regler.regler3 }}
+          </td>
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="!extraRegler">
+        <tr class="" *ngFor="let regler of allGenerellSchieberegler; first as isFirst">
+          <th scope="row"><span *ngIf="isFirst">Generell</span></th>
+          <td>
+            {{ regler.beschreibung }}
+          </td>
+
+          <td>
+            {{ regler.regler1 }}
+          </td>
+          <td>
+            {{ regler.regler2 }}
+          </td>
+          <td>
+            {{ regler.regler3 }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color':
+                regler.regler1 + regler.regler2 + regler.regler3
+                | colorGradient : startColor : middleColor : endColor : min : max
+            }"
+          >
+            {{ regler.regler1 + regler.regler2 + regler.regler3 }}
+          </td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 </div>

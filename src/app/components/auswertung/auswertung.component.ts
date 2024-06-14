@@ -10,10 +10,12 @@ import { Zufriedenheitsfaktoren } from 'src/app/models/zufriedenheitsfaktoren.mo
 })
 export class AuswertungComponent implements OnInit {
   @Input() Zufriedenheitsfaktoren!: Zufriedenheitsfaktoren;
+  @Input() extraRegler!: boolean;
   @Input() allIchSchieberegler!: Schieberegler[];
   @Input() allFamilieSchieberegler!: Schieberegler[];
   @Input() allBerufSchieberegler!: Schieberegler[];
   @Input() allUmweltSchieberegler!: Schieberegler[];
+  @Input() allGenerellSchieberegler!: Schieberegler[];
   constructor() {}
 
   startColor: Color = {
@@ -22,11 +24,11 @@ export class AuswertungComponent implements OnInit {
     blue: 0,
   };
 
-  middleColor:Color={
+  middleColor: Color = {
     red: 255,
     green: 208,
     blue: 0,
-  }
+  };
 
   endColor: Color = {
     red: 0,
@@ -36,8 +38,6 @@ export class AuswertungComponent implements OnInit {
 
   min = 0;
   max = 300;
-
-
 
   ngOnInit(): void {}
 }

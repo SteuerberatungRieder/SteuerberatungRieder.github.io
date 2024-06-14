@@ -18,10 +18,12 @@ import { Zufriedenheitsfaktoren } from 'src/app/models/zufriedenheitsfaktoren.mo
 })
 export class EingabeComponent implements OnInit {
   @Input() Zufriedenheitsfaktoren!: Zufriedenheitsfaktoren;
+  @Input() extraRegler!: boolean;
   @Input() allIchSchieberegler!: Schieberegler[];
   @Input() allFamilieSchieberegler!: Schieberegler[];
   @Input() allBerufSchieberegler!: Schieberegler[];
   @Input() allUmweltSchieberegler!: Schieberegler[];
+  @Input() allGenerellSchieberegler!: Schieberegler[];
 
   @Output() ZufriedenheitsfaktorenChange = new EventEmitter<Zufriedenheitsfaktoren>();
 
@@ -29,6 +31,8 @@ export class EingabeComponent implements OnInit {
   @Output() allFamilieSchiebereglerChange = new EventEmitter<Schieberegler[]>();
   @Output() allBerufSchiebereglerChange = new EventEmitter<Schieberegler[]>();
   @Output() allUmweltSchiebereglerChange = new EventEmitter<Schieberegler[]>();
+
+  @Output() allGenerellSchiebereglerChange = new EventEmitter<Schieberegler[]>();
 
   @ViewChildren('IchSchieberegler', { read: ElementRef })
   IchSchiebereglers!: QueryList<ElementRef>;
@@ -38,6 +42,8 @@ export class EingabeComponent implements OnInit {
   BerufSchiebereglers!: QueryList<ElementRef>;
   @ViewChildren('UmweltSchieberegler', { read: ElementRef })
   UmweltSchiebereglers!: QueryList<ElementRef>;
+  @ViewChildren('GenerallSchieberegler', { read: ElementRef })
+  GenerallSchiebereglers!: QueryList<ElementRef>;
   constructor() {}
 
   ngOnInit(): void {}
@@ -67,6 +73,7 @@ export class EingabeComponent implements OnInit {
     this.allFamilieSchiebereglerChange.emit(this.allFamilieSchieberegler);
     this.allBerufSchiebereglerChange.emit(this.allBerufSchieberegler);
     this.allUmweltSchiebereglerChange.emit(this.allUmweltSchieberegler);
+    this.allGenerellSchiebereglerChange.emit(this.allGenerellSchieberegler);
   }
 
   addIchSchieberegler() {
@@ -94,6 +101,15 @@ export class EingabeComponent implements OnInit {
     this.allUmweltSchieberegler.push(this.createRegler());
     setTimeout(() => {
       const lastInput = this.UmweltSchiebereglers.last.nativeElement as HTMLInputElement;
+      lastInput.focus();
+    });
+  }
+
+  addGenerellSchieberegler() {
+    this.allGenerellSchieberegler.push(this.createRegler());
+    setTimeout(() => {
+      const lastInput = this.GenerallSchiebereglers.last
+        .nativeElement as HTMLInputElement;
       lastInput.focus();
     });
   }
