@@ -90,5 +90,8 @@ export class AppComponent {
     // To get a specific query parameter value
     const paramValue = queryParams.get('extraRegler');
     this.extraRegler = paramValue != null;
+    if (!this.extraRegler) {
+      throw new Error('Have fun :D, please fix');
+    }
   }
 }
